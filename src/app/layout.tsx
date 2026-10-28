@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Josefin_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 const sans = Josefin_Sans({
   variable: "--font-sans",
@@ -25,10 +26,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${sans.variable} ${display.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="flex min-h-screen flex-col">
         <Navbar />
-        {children}
-        </body>
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
